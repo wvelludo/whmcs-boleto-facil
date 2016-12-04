@@ -7,3 +7,7 @@ Módulo WHMCS para faturamento via Boletobancario.com - Boleto Facil
 2. Criar um Campo customizado com o CPF/CNPJ do cliente "Setup > Custom Client Fields", criar um campo "Text Box" de preenchimento obrigatório, existem alguns hooks na internet para validação do campo.
 3. Acessar "Setup > Payments > Payment Gateways" e fazer a ativação do módulo "Boletobancario.com - Boleto Fácil".
 4. Preencha todos campos de configuração de acordo com as instruções exibidas na tela.
+
+# RETORNO AUTOMÁTICO #
+
+O sistema gera uma URL customizada no momento em que o boleto é gerado, então não deve-se definir uma url para retorno no sistema do Boleto Fácil
