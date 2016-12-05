@@ -22,6 +22,7 @@ function boletofacil_config() {
      "interest" => array("FriendlyName" => "Juros", "Type" => "text", "Size" => "4", "Description" => "Juros para pagamento após o vencimento. Decimal, separado por ponto. Maior ou igual a 0.00 e menor ou igual a 1.00 (máximo permitido por lei)"),
      "tarifa" => array("FriendlyName" => "Tarifa", "Type" => "text", "Size" => "4", "Description" => "Valor adicional para pagamento com boleto. Ex: 1.50"),
      "campocpf" => array("FriendlyName" => "Campo CPF/CNPJ", "Type" => "text", "Size" => "20", "Description" => "Campo customizado que contem o cpf/cnpj. Exemplo: customfields2"),
+	 "prorrogavencimento" => array("FriendlyName" => "Prorroga Vencimento", "Type" => "yesno", "Description" => "Se no primeiro acesso a invoice a mesma já estiver vencida gera o boleto com vencimento em 2 dias."),
      "testmode" => array("FriendlyName" => "Ambiente de Testes", "Type" => "yesno", ),
     );
 	return $configarray;
@@ -48,6 +49,10 @@ function boletofacil_link($params) {
 		$date = $data["date"];
 		$duedate = $data["duedate"];
 		$total = $data["total"];
+		
+		if ($params["prorrogavencimento"] == "on" && $duedate < date("Y-m-d")) {
+			$duedate = date("Y-m-d",strtotime('+2 day'));
+		}
 		
 		if ($params["tarifa"] > 0) {
 			$amount = $total + $params["tarifa"];
