@@ -15,7 +15,7 @@ function boletofacil_MetaData() {
 function boletofacil_config() {
     $configarray = array(
      "FriendlyName" => array("Type" => "System", "Value"=>"Boletobancario.com - Boleto Facil"),
-     "token" => array("FriendlyName" => "Token", "Type" => "text", "Size" => "50", ),
+     "token" => array("FriendlyName" => "Token", "Type" => "text", "Size" => "50", "Description" => "Fornecido pelo Boletobancario.com - Boleto Facil"),
      "secret" => array("FriendlyName" => "Secret", "Type" => "text", "Size" => "50", "Description" => "Usado para comparação no retorno do pagamento (Preferecialmente 32 digitos)"),
      "maxOverdueDays" => array("FriendlyName" => "Após vencimento", "Type" => "text", "Size" => "4", "Description" => "Número máximo de dias que o boleto poderá ser pago após o vencimento (\"0 Desativa\")"),
      "fine" => array("FriendlyName" => "Multa", "Type" => "text", "Size" => "4", "Description" => "Multa para pagamento após o vencimento (Decimal, separado por ponto. Maior ou igual a 0.00 e menor ou igual a 2.00 (máximo permitido por lei)" ),
